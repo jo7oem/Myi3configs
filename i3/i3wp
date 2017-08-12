@@ -1,0 +1,7 @@
+#!/bin/bash
+WALL=$HOME/WallP/
+cd $WALL
+if [ ! -f filelist.txt ] || [ filelist.txt -ot . ]; then
+  find . -name "*.jpg" -or -name "*.png" > filelist.txt
+fi
+feh --bg-scale $(shuf -n 1 filelist.txt)
